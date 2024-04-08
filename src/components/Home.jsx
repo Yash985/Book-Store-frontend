@@ -13,15 +13,6 @@ const defaultBookData = [
     type: "Science",
   },
 ];
-// const defaultBookData = [
-//   {
-//     id: "",
-//     title: "",
-//     desc: "",
-//     img_url: "",
-//     type: "",
-//   },
-// ];
 
 const Home = () => {
   const [bookData, setBookData] = useState(defaultBookData);
@@ -33,15 +24,20 @@ const Home = () => {
 
   const getBookData = async () => {
     const response = await getBooks();
+    if (response.length === 0) return setBookData(defaultBookData);
     setBookData(response);
   };
 
+  const filterData = (data) => {
+    setBookData(data);
+  };
+
   return (
-    <div className="flex">
+    <div className="">
       {/* Left bar */}
-      <LeftSideBar />
+      <LeftSideBar setBook={filterData} />
       {/* Right bar */}
-      <div className="p-12 m-auto grid grid-cols-3 gap-10">
+      <div className="p-12 m-auto grid grid-cols-4 gap-8">
         {bookData.map((book, index) => (
           <Cards
             key={index}

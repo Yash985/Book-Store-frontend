@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const Cards = ({ image, desc, title, id }) => {
   return (
-    <div class="max-w-xs max-h-[450px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-[320px] h-[400px] overflow-hidden">
+    <div class="max-w-xs max-h-[450px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-[300px] h-[400px] overflow-hidden">
       <Link to={`/details/${id}`}>
         <img
-          class="rounded-t-lg h-[200px] w-full object-cover object-center"
+          class="rounded-t-lg h-[200px] w-full object-contain"
           src={image}
-          alt=""
+          alt="Book image"
         />
       </Link>
       <div class="p-5">
