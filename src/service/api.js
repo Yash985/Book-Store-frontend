@@ -30,3 +30,12 @@ export const filterBooks = async (type) => {
     console.log("Error while fetching the books", err);
   }
 };
+
+export const getBookById = async (id) => {
+  try {
+    const res = await axios.get(`${URL}/book/${id}`);
+    return res.data;
+  } catch (err) {
+    console.log("Error while fetching the book", err);
+  }
+}
