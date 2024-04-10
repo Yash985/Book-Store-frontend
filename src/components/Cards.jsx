@@ -5,28 +5,19 @@ const Cards = ({ image, desc, title, id }) => {
   return (
     <>
       <div className="relative h-56 w-72 bg-slate-600 overflow-hidden transform hover:scale-[1.1] ease-out duration-200 rounded-xl">
-        <img
-          className="h-56 w-72"
-          src={image}
-          alt="Book Image"
-        />
+        <img className="h-56 w-72" src={image} alt="Book Image" />
         <Link to={`/details/${id}`}>
-        <div className="absolute p-2 bottom-0 bg-[rgba(255,255,255,0.705)] transform translate-y-[65%] duration-500 hover:translate-y-0 ease-in">
-          <h3 className="text-3xl">{title}</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio iure
-            dolore, tempore eligendi accusantium veniam.
-          </p>
+          <div className="absolute  w-full p-2 bottom-0 bg-[rgba(255,255,255,0.705)] transform translate-y-[50%] duration-500 hover:translate-y-0 ease-in">
+            <h3 className="text-3xl">{title}</h3>
+            <p>{desc.slice(0, 100) + (desc.length > 100 ? "..." : "")}</p>
           </div>
-          </Link>
+        </Link>
       </div>
     </>
   );
 };
 
 export default Cards;
-
-
 
 // const Cards = ({ image, desc, title, id }) => {
 //   return (

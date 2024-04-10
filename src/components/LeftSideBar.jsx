@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { filterBooks } from "../service/api";
+import React, { useState } from "react";
+import { filterBooks, getBooks } from "../service/api";
 import toast from "react-hot-toast";
 
 const LeftSideBar = ({ setBook }) => {
@@ -7,7 +7,13 @@ const LeftSideBar = ({ setBook }) => {
 
   const filterBook = async (e) => {
     e.preventDefault();
+    if (filter === "all") {
+      const res = await getBooks();
+      setBook(res);
+      return;
+    }
     if (filter === "") return toast.error("Please select a subject to filter");
+
     const res = await filterBooks(filter);
     if (res.length === 0) return toast.error("No books found");
     setBook(res);
@@ -21,6 +27,18 @@ const LeftSideBar = ({ setBook }) => {
         onSubmit={filterBook}
         className="flex w-full justify-evenly items-center"
       >
+        <div>
+          <input
+            className=""
+            type="radio"
+            name="subject"
+            id="all"
+            onChange={(e) => setFilter(e.target.id)}
+          />
+          <label className="text-md" for="all">
+            All
+          </label>
+        </div>
         <div>
           <input
             className=""
