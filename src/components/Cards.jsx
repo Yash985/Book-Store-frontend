@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Cards = ({ image, desc, title, id }) => {
   return (
     <>
-      <div className="relative h-56 w-72 bg-slate-600 overflow-hidden transform hover:scale-[1.1] ease-out duration-200 rounded-xl">
-        <img className="h-56 w-72" src={image} alt="Book Image" />
+      <div className="relative h-60 w-72 overflow-hidden transform hover:scale-[1.1] ease-out duration-200 rounded-xl shadow-2xl">
+        <img className="h-60 w-72" src={image} alt="Book Image" />
         <Link to={`/details/${id}`}>
           <div className="absolute  w-full p-2 bottom-0 bg-[rgba(255,255,255,0.705)] transform translate-y-[50%] duration-500 hover:translate-y-0 ease-in">
             <h3 className="text-3xl">{title}</h3>

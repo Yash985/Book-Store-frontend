@@ -25,7 +25,7 @@ const AddBook = () => {
   };
 
   return (
-    <div className="bg-slate-400 h-[500px] w-[450px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg mt-4 flex flex-col items-center">
+    <div className="bg-slate-400 h-[550px] w-[450px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg mt-4 flex flex-col items-center">
       <h2 className="text-center mt-10 text-3xl font-semibold mb-8">AddBook</h2>
       <form>
         <label className="ml-6 font-medium text-xl" htmlFor="title">
@@ -43,9 +43,10 @@ const AddBook = () => {
           Description
         </label>
 
-        <input
+        <textarea
+          maxLength={1500}
           id="desc"
-          className="w-[90%] rounded-md h-8 ml-5 p-2 my-2 placeholder-slate-600"
+          className="w-[90%] rounded-md h-20 ml-5 p-2 my-2 placeholder-slate-600"
           type="text"
           placeholder="Discription of the book"
           value={input.desc}

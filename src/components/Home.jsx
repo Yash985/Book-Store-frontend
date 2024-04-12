@@ -37,7 +37,7 @@ const Home = () => {
       {/* Left bar */}
       <LeftSideBar setBook={filterData} />
       {/* Right bar */}
-      <div className="p-12 m-auto grid grid-cols-4 gap-8">
+      <div className="p-10 grid grid-cols-4 gap-10">
         {bookData.map((book, index) => (
           <Cards
             key={index}

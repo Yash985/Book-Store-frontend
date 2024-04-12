@@ -18,10 +18,15 @@ const DetailPage = () => {
   return (
     <div className="h-full w-full flex">
       <div className="h-[50%] w-[40%] mt-16 flex justify-center p-4">
-        <img
-          className="h-96 w-96 object-cover rounded-lg shadow-2xl"
-          src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        />
+        <div className="relative h-96 w-96 overflow-hidden shadow-2xl">
+          <img
+            className="h-96 w-96 object-fit rounded-lg "
+            src={book?.img_url}
+          />
+          <div className="absolute h-20 w-full p-3 bottom-0 bg-[rgba(255,255,255,0.705)] transform translate-y-[20%] duration-500 hover:translate-y-0 ease-in">
+            <h3 className="text-4xl">{book?.title}</h3>
+          </div>
+        </div>
       </div>
       <div className="h-[50%] w-[60%]  mt-16 px-6">
         <h3 className="text-4xl mb-3">Description</h3>
