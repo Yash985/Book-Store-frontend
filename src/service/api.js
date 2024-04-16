@@ -1,6 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
+
 const URL = "http://localhost:3000";
 
 export const addBook = async (data) => {
@@ -38,4 +39,14 @@ export const getBookById = async (id) => {
   } catch (err) {
     console.log("Error while fetching the book", err);
   }
-}
+};
+
+export const getAuthenticatedUser = () => {
+  try {
+    const res = axios.get(`${URL}/login/success`);
+    return res.data;
+  } catch (err) {
+
+    console.log("Error while getting user", err);
+  }
+};

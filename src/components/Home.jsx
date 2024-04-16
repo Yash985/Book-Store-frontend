@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import LeftSideBar from "./LeftSideBar";
 import Cards from "./Cards";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { getBooks } from "../service/api";
+import toast from "react-hot-toast";
 
 const defaultBookData = [
   {
@@ -16,11 +19,42 @@ const defaultBookData = [
 
 const Home = () => {
   const [bookData, setBookData] = useState(defaultBookData);
+  const navigate = useNavigate();
 
   //useEffect for fetching books from the database
   useEffect(() => {
+    getUserauth();
     getBookData();
   }, []);
+
+  const getUser = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3000/login/success`);
+      console.log("Home", res.data);
+    } catch (err) {
+      navigate("*");
+    }
+  };
+
+  const getUserauth = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3000/authenticate`, {
+        withCredentials: true,
+      });
+      console.log("Home", res.data.success);
+    } catch (err) {
+      if (err.response.data.success === false) {
+        toast.error("Please login to continue");
+        navigate("/login");
+      } else {
+        console.log(err);
+      }
+    }
+  };
+
+  // const logout = () => {
+  //   window.open("http://localhost:3000/auth/logout", "_self");
+  // }
 
   const getBookData = async () => {
     const response = await getBooks();

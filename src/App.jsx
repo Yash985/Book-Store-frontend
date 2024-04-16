@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import AddBook from "./components/AddBook";
 import DetailPage from "./components/DetailPage";
 import Home from "./components/Home";
+import Login from "./components/Login";
 import NoPage from "./components/NoPage";
 import {
   createBrowserRouter,
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
     <Route path="" element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/addbook" element={<AddBook />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/details/:id" element={<DetailPage />} />
       <Route path="*" element={<NoPage />} />
     </Route>
